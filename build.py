@@ -64,7 +64,7 @@ a{color:inherit}
 .hero{position:relative;min-height:340px;display:flex;align-items:flex-end;background:var(--bg) center/cover no-repeat;padding:20px max(16px,env(safe-area-inset-left)) 30px}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,17,22,.35) 0%,rgba(14,17,22,.55) 45%,var(--bg) 100%)}
 .hero .in{position:relative;width:100%;max-width:880px;margin:0 auto}
-.top{position:absolute;top:-150px;left:0;right:0;display:flex;justify-content:space-between;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.top{position:absolute;z-index:1;top:calc(14px + env(safe-area-inset-top));left:max(16px,env(safe-area-inset-left));right:max(16px,env(safe-area-inset-right));max-width:880px;margin:0 auto;display:flex;justify-content:space-between;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .top a{text-decoration:none;opacity:.85;background:rgba(14,17,22,.45);padding:6px 10px;border-radius:4px;backdrop-filter:blur(6px)}
 .top a:hover{opacity:1}
 .hero h1{font-size:clamp(2.6rem,9vw,4.8rem);line-height:.95;margin:0 0 10px;font-weight:800;letter-spacing:-.03em;text-shadow:0 2px 24px rgba(0,0,0,.4)}
@@ -130,8 +130,8 @@ for idx, (cid, cname, short, dates, nights, ci, co, acc, note, items) in enumera
 <div class="against"><h3>Against</h3><ul>{''.join(f"<li>{esc(x)}</li>" for x in con)}</ul></div></div>
 </article>''')
     page = HEAD.format(title=f"{cname} · Jan 2027 stays", css=CSS) + f'''<body style="--acc:{acc}">
-<header class="hero" style="background-image:url('{himg}?auto=format&fit=crop&w=1800&q=70')"><div class="in">
-<div class="top"><a href="./">← All cities</a><a href="{other[0]}.html">{esc(other[2])} →</a></div>
+<header class="hero" style="background-image:url('{himg}?auto=format&fit=crop&w=1800&q=70')">
+<div class="top"><a href="./">← All cities</a><a href="{other[0]}.html">{esc(other[2])} →</a></div><div class="in">
 <h1>{esc(cname)}</h1><div class="dates">{dates} · {nights} nights · 9 people</div><p class="note">{esc(note)}</p>
 </div></header>
 <main class="wrap">{''.join(opts)}

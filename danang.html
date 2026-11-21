@@ -10,7 +10,7 @@ a{color:inherit}
 .hero{position:relative;min-height:340px;display:flex;align-items:flex-end;background:var(--bg) center/cover no-repeat;padding:20px max(16px,env(safe-area-inset-left)) 30px}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,17,22,.35) 0%,rgba(14,17,22,.55) 45%,var(--bg) 100%)}
 .hero .in{position:relative;width:100%;max-width:880px;margin:0 auto}
-.top{position:absolute;top:-150px;left:0;right:0;display:flex;justify-content:space-between;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.top{position:absolute;z-index:1;top:calc(14px + env(safe-area-inset-top));left:max(16px,env(safe-area-inset-left));right:max(16px,env(safe-area-inset-right));max-width:880px;margin:0 auto;display:flex;justify-content:space-between;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .top a{text-decoration:none;opacity:.85;background:rgba(14,17,22,.45);padding:6px 10px;border-radius:4px;backdrop-filter:blur(6px)}
 .top a:hover{opacity:1}
 .hero h1{font-size:clamp(2.6rem,9vw,4.8rem);line-height:.95;margin:0 0 10px;font-weight:800;letter-spacing:-.03em;text-shadow:0 2px 24px rgba(0,0,0,.4)}
@@ -51,8 +51,8 @@ footer a{color:var(--mut)}
 .home .cr{position:fixed;bottom:8px;right:12px;z-index:2;font-size:.7rem;color:#c9ced6;text-shadow:0 1px 6px rgba(0,0,0,.7)}
 @media (max-width:620px){.home{grid-template-columns:1fr}.home a{min-height:50vh}}
 </style></head><body style="--acc:#6fd6d1">
-<header class="hero" style="background-image:url('https://images.unsplash.com/photo-1732827503735-511f7ccd187e?auto=format&fit=crop&w=1800&q=70')"><div class="in">
-<div class="top"><a href="./">← All cities</a><a href="hcmc.html">HCMC →</a></div>
+<header class="hero" style="background-image:url('https://images.unsplash.com/photo-1732827503735-511f7ccd187e?auto=format&fit=crop&w=1800&q=70')">
+<div class="top"><a href="./">← All cities</a><a href="hcmc.html">HCMC →</a></div><div class="in">
 <h1>Da Nang</h1><div class="dates">7–11 Jan 2027 · 4 nights · 9 people</div><p class="note">Private pool + central is possible here, at about S$26–31 per person per night.</p>
 </div></header>
 <main class="wrap"><article class="opt" id="dn1">
