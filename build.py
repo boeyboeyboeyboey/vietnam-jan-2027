@@ -129,11 +129,13 @@ HEAD = '''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name=
 
 TOPTAG = ' <span class="wish pick">Top pick</span>'
 WISHTAG = ' <span class="wish">On your wishlist</span>'
+VOTED = {"1483784188953758037"}
+VOTEDTAG = ' <span class="wish">Voted from previous wishlist</span>'
 
 def wishout(cid, ci, co):
     rows = WISH_OUT.get(cid)
     if not rows: return ""
-    li = "".join(f'<li><a href="https://www.airbnb.com.sg/rooms/{lid}?check_in={ci}&check_out={co}&adults=9" target="_blank" rel="noopener">{esc(n)}</a> <b>{p}</b> · {esc(why)}</li>' for n,p,lid,why in rows)
+    li = "".join(f'<li><a href="https://www.airbnb.com.sg/rooms/{lid}?check_in={ci}&check_out={co}&adults=9" target="_blank" rel="noopener">{esc(n)}</a>{VOTEDTAG if lid in VOTED else ""} <b>{p}</b> · {esc(why)}</li>' for n,p,lid,why in rows)
     return f'<section class="wl"><h3>Also on your wishlist, not included</h3><ul>{li}</ul></section>'
 
 def price_from(items): return min(int(i[5][2:]) for i in items)
