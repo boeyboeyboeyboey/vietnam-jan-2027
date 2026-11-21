@@ -20,27 +20,21 @@ HERO = {
 CITIES = [
  ("hcmc", "Ho Chi Minh City", "HCMC", "4–7 Jan 2027", 3, "2027-01-04", "2027-01-07", "#ff9f7a",
   "Ranked best first. All within 2.5 km of Ben Thanh Market, 3+ bathrooms.", [
-  ("HCMC1","27990178","Phoenix's 5BR House","District 1 (Da Kao) · 2.0 km","S$813","S$30","5 bedrooms · 5 baths","4.85★ (238) · Superhost",
+  ("HCMC1","27990178","Phoenix's 5BR House","District 1 (Da Kao) · 2.0 km to Ben Thanh · 1.8 km to shopping street","S$813","S$30","5 bedrooms · 5 baths","4.85★ (238) · Superhost",
    ["Most reviewed, consistently good","Every room has its own bathroom + AC","Host fixes problems fast","Free airport pickup"],
    ["5 floors of stairs, no lift","Weak portable AC in living room","Rooster from ~4:30am","Past ant/cockroach reports (one group moved out, Jan 2024)","5 queen beds, so 4 pairs share"]),
-  ("HCMC2","965804095820583217","4BR Duplex + Free Pickup","District 3 · 1.0 km","S$1,040","S$39","4 bedrooms · 4 baths","4.91★ (149) · Guest Favourite · Superhost",
+  ("HCMC2","965804095820583217","4BR Duplex + Free Pickup","District 3 · 1.0 km to Ben Thanh · 1.9 km to shopping street","S$1,040","S$39","4 bedrooms · 4 baths","4.91★ (149) · Guest Favourite · Superhost",
    ["Most reviewed this close to centre","Two living areas (one with projector)","Quiet street, café downstairs","Building rooftop pool + gym","Free airport pickup + SIM"],
    ["Pricey","4 beds for 9 (extra mattress on request)","\"A bit dated\" (2024)","Pickup car only fits 4–7","Building gym equipment broken (Jun 2024)"]),
-  ("HCMC3","1311605703773163437","Haina's 5BR House","District 3 · 1.6 km","S$753","S$28","5 bedrooms · 6 beds · 4.5 baths","4.88★ (16) · Superhost",
+  ("HCMC3","1311605703773163437","Haina's 5BR House","District 3 · 1.6 km to Ben Thanh · 1.8 km to shopping street","S$753","S$28","5 bedrooms · 6 beds · 4.5 baths","4.88★ (16) · Superhost",
    ["Enough beds for 9 with little sharing","Living room has AC + TV","Rooftop terrace"],
    ["\"Old house, AC doesn't work well\" (Dec 2024)","Alley + stairs","Only 16 reviews"]),
-  ("HCMC4","1731138706065239581","Cozy 5BR/5BA House","District 1 · 1.0 km","S$1,094","S$41","5 bedrooms · 8 beds · 5 baths","5.0★ (8) · Guest Favourite · Superhost",
+  ("HCMC4","1731138706065239581","Cozy 5BR/5BA House","District 1 · 1.0 km to Ben Thanh · 2.5 km to shopping street","S$1,094","S$41","5 bedrooms · 8 beds · 5 baths","5.0★ (8) · Guest Favourite · Superhost",
    ["Most beds + baths this close to centre","New, clean","Every review 5★"],
    ["Priciest","Only 8 reviews","Only 1 bathroom shown in photos","No living-room AC seen","Shophouse alley"]),
-  ("HCMC5","1483784188953758037","Cau Kho 3BR House","District 1 (Cau Kho) · 2.2 km","S$473","S$18","3 bedrooms · 6 beds · 3 baths","4.68★ (40)",
-   ["Cheapest","Living room has AC + TV","Washer in photos","Rooftop","Responsive host"],
-   ["Sewage backup + washer flooded ground floor (Oct 2025)","Only 1 of 3 toilets worked for one group (Oct 2025)","Weak shower pressure (Nov 2025)","4 floors of steep, narrow stairs","Some sleep on sofa beds","Alley, Grab can't reach the door"]),
-  ("HCMC6","1587035319818469396","D1 Entire-Floor Apartment","District 1 · 2.2 km","S$567","S$21","4 bedrooms · 4 beds · 4 baths","4.5★ (8)",
-   ["Close to budget","Whole floor to yourselves","Lift","Self check-in, luggage storage"],
-   ["Far: 2.2 km from Ben Thanh","Faulty shower heater (Mar 2026)","Street horn noise (Feb 2026)","Missing kitchen items, sink smell (Feb 2026)","4 beds for 9"]),
-  ("HCMC7","1575977622753200671","5 Master Bedrooms, Lift","District 1 · 2.4 km","S$523","S$19","5 bedrooms · 5 beds · 5 baths","4.29★ (7)",
-   ["Under budget","5 bathrooms","Lift","Responsive host, AC fixed same day (Apr 2026)"],
-   ["Far: 2.4 km from Ben Thanh","1★ \"too small room\" (Oct 2026)","Room differed from photos (Dec 2025)","5 beds for 9","Only 7 reviews"]),
+  ("HCMC5","1587035319818469396","D1 Entire-Floor Apartment","District 1 (Tan Dinh) · 2.2 km to Ben Thanh · 1.4 km to shopping street","S$567","S$21","4 bedrooms · 4 beds · 4 baths","4.5★ (8)",
+   ["Close to budget","Closest to shopping street","Good local food nearby","Whole floor to yourselves","Lift"],
+   ["Only 8 reviews","Faulty shower heater (Mar 2026)","Street horn noise (Feb 2026)","Missing kitchen items, sink smell (Feb 2026)","4 beds for 9"]),
  ]),
  ("danang", "Da Nang", "Da Nang", "7–11 Jan 2027", 4, "2027-01-07", "2027-01-11", "#6fd6d1",
   "Ranked best first. Private pool + central costs about S$26–31 per person per night.", [
@@ -63,8 +57,9 @@ CITIES = [
 ]
 
 CANC = {'1587035319818469396': 'Free cancel until 3 Jan', '1575977622753200671': 'No free cancellation', '1483784188953758037': 'Free cancel until 30 Dec', '27914684': 'No free cancellation', '1697772649812663470': 'Free cancel until 3 Jan', '1311605703773163437': 'Free cancel until 3 Jan', '27990178': 'Free cancel until 30 Dec', '39342498': 'No free cancellation', '965804095820583217': 'Free cancel until 30 Dec', '1731138706065239581': 'Free cancel until 30 Dec', '1500369668192839406': 'Free cancel until 8 Dec', '1499048958220731670': 'Free cancel until 8 Dec', '1119292625144112269': 'Free cancel until 8 Dec', '1598281711142232998': 'Free cancel until 24 Dec', '1173705612210421870': 'Free cancel until 2 Jan'}
-WISH = {"1483784188953758037"}
+WISH = set()
 WISH_OUT = {"hcmc": [
+ ("Cau Kho 3BR, District 1","S$473","1483784188953758037","Too far: 2.2 km to Ben Thanh, 3.7 km to shopping street. Oct 2025: sewage backup flooded the ground floor."),
  ("Grand Riverside 4BR, District 4","S$585","1232973284686915745","Only 2 bathrooms and 4 beds for 9. Apr 2026: a bathroom unusable + mould. Jun 2026: host charged a guest for a sheet they say they didn't damage."),
  ("The Echo D1 3BR","S$543","1380356239307975966","Only 2 bathrooms and 4 beds for 9. Nov 2025 1★: \"looked NOTHING like the photos\", dirty."),
 ]}
