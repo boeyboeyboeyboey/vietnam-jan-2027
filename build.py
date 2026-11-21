@@ -41,6 +41,12 @@ CITIES = [
   ("DN1","1500369668192839406","Cam On Pool Villa","1.1 km from Han Market","S$923","S$26","4 bedrooms · 5 beds · 4 baths","4.73★ (33) · private pool ~8–10 m",
    ["Biggest private pool","~1 km to Han Market","Free airport pickup"],
    ["No warm water some evenings, few towels/dishes","Construction + karaoke nearby (Jan 2025)","Dining table seats 6","TV/washer not seen in photos"]),
+  ("HCMC6","1587035319818469396","D1 Entire-Floor Apartment","District 1 · 2.2 km","S$567","S$21","4 bedrooms · 4 beds · 4 baths","4.5★ (8)",
+   ["Close to budget","Whole floor to yourselves","Lift","Self check-in, luggage storage"],
+   ["Far: 2.2 km from Ben Thanh","Faulty shower heater (Mar 2026)","Street horn noise (Feb 2026)","Missing kitchen items, sink smell (Feb 2026)","4 beds for 9"]),
+  ("HCMC7","1575977622753200671","5 Master Bedrooms, Lift","District 1 · 2.4 km","S$523","S$19","5 bedrooms · 5 beds · 5 baths","4.29★ (7)",
+   ["Under budget","5 bathrooms","Lift","Responsive host, AC fixed same day (Apr 2026)"],
+   ["Far: 2.4 km from Ben Thanh","1★ \"too small room\" (Oct 2026)","Room differed from photos (Dec 2025)","5 beds for 9","Only 7 reviews"]),
   ("DN2","1598281711142232998","Luxury 4BR Home","1.9 km from Han Market","S$697","S$19","4 bedrooms · 8 beds · 4.5 baths","5.0★ (10) · Guest Favourite · Superhost",
    ["Under budget","All reviews 5★","Washer + dryer","Rooftop"],
    ["No pool","Only 10 reviews","Living room has a portable cooler, not AC","Construction crane nearby"]),
@@ -56,7 +62,7 @@ CITIES = [
  ]),
 ]
 
-CANC = {'1483784188953758037': 'Free cancel until 30 Dec', '27914684': 'No free cancellation', '1697772649812663470': 'Free cancel until 3 Jan', '1311605703773163437': 'Free cancel until 3 Jan', '27990178': 'Free cancel until 30 Dec', '39342498': 'No free cancellation', '965804095820583217': 'Free cancel until 30 Dec', '1731138706065239581': 'Free cancel until 30 Dec', '1500369668192839406': 'Free cancel until 8 Dec', '1499048958220731670': 'Free cancel until 8 Dec', '1119292625144112269': 'Free cancel until 8 Dec', '1598281711142232998': 'Free cancel until 24 Dec', '1173705612210421870': 'Free cancel until 2 Jan'}
+CANC = {'1587035319818469396': 'Free cancel until 3 Jan', '1575977622753200671': 'No free cancellation', '1483784188953758037': 'Free cancel until 30 Dec', '27914684': 'No free cancellation', '1697772649812663470': 'Free cancel until 3 Jan', '1311605703773163437': 'Free cancel until 3 Jan', '27990178': 'Free cancel until 30 Dec', '39342498': 'No free cancellation', '965804095820583217': 'Free cancel until 30 Dec', '1731138706065239581': 'Free cancel until 30 Dec', '1500369668192839406': 'Free cancel until 8 Dec', '1499048958220731670': 'Free cancel until 8 Dec', '1119292625144112269': 'Free cancel until 8 Dec', '1598281711142232998': 'Free cancel until 24 Dec', '1173705612210421870': 'Free cancel until 2 Jan'}
 WISH = {"1483784188953758037"}
 WISH_OUT = {"hcmc": [
  ("Grand Riverside 4BR, District 4","S$585","1232973284686915745","Only 2 bathrooms and 4 beds for 9. Apr 2026: a bathroom unusable + mould. Jun 2026: host charged a guest for a sheet they say they didn't damage."),
