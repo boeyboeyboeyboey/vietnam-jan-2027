@@ -38,23 +38,25 @@ CITIES = [
  ]),
  ("danang", "Da Nang", "Da Nang", "7–11 Jan 2027", 4, "2027-01-07", "2027-01-11", "#6fd6d1",
   "Private pool + central is possible here, at about S$26–31 per person per night.", [
-  ("DN1","1500369668192839406","Cam On Pool Villa","1.1 km from Han Market","S$925","S$26","4 bedrooms · 5 beds · 4 baths","4.73★ (33) · private pool ~8–10 m",
+  ("DN1","1500369668192839406","Cam On Pool Villa","1.1 km from Han Market","S$923","S$26","4 bedrooms · 5 beds · 4 baths","4.73★ (33) · private pool ~8–10 m",
    ["Biggest private pool","~1 km to Han Market","Free airport pickup"],
    ["No warm water some evenings, few towels/dishes","Construction + karaoke nearby (Jan 2025)","Dining table seats 6","TV/washer not seen in photos"]),
-  ("DN2","1499048958220731670","Da Nang Pool Villa (Olivia)","1.8 km from Han Market","S$1,102","S$31","4 bedrooms · 5 beds · 5 baths","4.94★ (100) · Guest Favourite · Superhost",
+  ("DN2","1499048958220731670","Da Nang Pool Villa (Olivia)","1.8 km from Han Market","S$1,101","S$31","4 bedrooms · 5 beds · 5 baths","4.94★ (100) · Guest Favourite · Superhost",
    ["Best track record","5 bathrooms","8-seat dining","Free airport pickup"],
    ["Pool is a small plunge pool (~3×2 m)","\"5 rooms\" was 4 + curtained rooftop (May 2025)","4 floors of stairs","Market-alley entrance","Weak water pressure"]),
-  ("DN3","1119292625144112269","Han Market Indoor-Pool Villa","0.3 km from Han Market","S$1,050","S$29","4 bedrooms · 4 beds · 4 baths","4.77★ (13) · indoor pool",
+  ("DN3","1119292625144112269","Han Market Indoor-Pool Villa","0.3 km from Han Market","S$1,049","S$29","4 bedrooms · 4 beds · 4 baths","4.77★ (13) · indoor pool",
    ["Best location","Indoor pool works in rain","No complaints in reviews"],
    ["Some photos look AI-generated, ask for real ones","4 beds for 9","Washer not shown"]),
-  ("DN4","1598281711142232998","Luxury 4BR Home","1.9 km from Han Market","S$698","S$19","4 bedrooms · 8 beds · 4.5 baths","5.0★ (10) · Guest Favourite · Superhost",
+  ("DN4","1598281711142232998","Luxury 4BR Home","1.9 km from Han Market","S$697","S$19","4 bedrooms · 8 beds · 4.5 baths","5.0★ (10) · Guest Favourite · Superhost",
    ["Under budget","All reviews 5★","Washer + dryer","Rooftop"],
    ["No pool","Only 10 reviews","Living room has a portable cooler, not AC","Construction crane nearby"]),
-  ("DN5","1173705612210421870","CAFE HOUSE","1.5 km from Han Market","S$671","S$19","5 bedrooms · 5 beds · 4 baths","4.8★ (56)",
+  ("DN5","1173705612210421870","CAFE HOUSE","1.5 km from Han Market","S$670","S$19","5 bedrooms · 5 beds · 4 baths","4.8★ (56)",
    ["Cheapest","5 bedrooms, all queen beds","Washer + dryer"],
    ["No pool","Repeated bad-smell reports","Cockroach (Nov 2025)","Living room has fan only","Dining table seats 6"]),
  ]),
 ]
+
+CANC = {"HCMC1":"No free cancellation","HCMC2":"Free cancel until 30 Dec","HCMC3":"No free cancellation","HCMC4":"Free cancel until 30 Dec","HCMC5":"Free cancel until 30 Dec","DN1":"Free cancel until 8 Dec","DN2":"Free cancel until 8 Dec","DN3":"Free cancel until 8 Dec","DN4":"Free cancel until 24 Dec","DN5":"Free cancel until 2 Jan"}
 
 def esc(s): return html.escape(s, quote=True)
 
@@ -84,6 +86,7 @@ a{color:inherit}
 .price b{display:block;font-size:2.1rem;line-height:1;font-weight:800;color:var(--acc);letter-spacing:-.02em}
 .price span{display:block;font-size:.75rem;color:var(--mut);margin-top:4px}
 .price i{display:block;font-style:normal;font-size:.85rem;margin-top:4px}
+.price em{display:block;font-style:normal;font-size:.75rem;margin-top:4px}.price em.ok{color:var(--plus)}.price em.no{color:var(--minus)}
 .strip{display:flex;gap:4px;overflow-x:auto;margin:16px -18px 4px;padding:0 18px;scroll-snap-type:x proximity}
 .strip img{height:230px;width:auto;aspect-ratio:3/2;object-fit:cover;display:block;scroll-snap-align:start;background:var(--rule);border-radius:3px}
 .count{font-size:.78rem;color:var(--mut);margin:0 0 12px}
@@ -127,7 +130,7 @@ for idx, (cid, cname, short, dates, nights, ci, co, acc, note, items) in enumera
         opts.append(f'''<article class="opt" id="{code.lower()}">
 <div class="row"><span class="code">{code}</span>
 <div><h2><a href="{link}" target="_blank" rel="noopener">{esc(name)} ↗</a></h2><p class="meta">{esc(loc)}<br>{esc(rooms)} · {esc(rating)}</p></div>
-<div class="price"><b>{pp}</b><span>per person / night</span><i>{tot} total · {nights} nights</i></div></div>
+<div class="price"><b>{pp}</b><span>per person / night</span><i>{tot} total · {nights} nights</i><em class="{"no" if CANC[code].startswith("No") else "ok"}">{CANC[code]}</em></div></div>
 <div class="strip">{imgs}</div><p class="count">{len(pics[lid])} photos · swipe →</p>
 <div class="fa"><div class="for"><h3>For</h3><ul>{''.join(f"<li>{esc(x)}</li>" for x in pro)}</ul></div>
 <div class="against"><h3>Against</h3><ul>{''.join(f"<li>{esc(x)}</li>" for x in con)}</ul></div></div>
@@ -138,7 +141,7 @@ for idx, (cid, cname, short, dates, nights, ci, co, acc, note, items) in enumera
 <h1>{esc(cname)}</h1><div class="dates">{dates} · {nights} nights · 9 people</div><p class="note">{esc(note)}</p>
 </div></header>
 <main class="wrap">{''.join(opts)}
-<footer>Airbnb totals before tax, checked 21 Nov 2026. Tap a photo for full size, a title to open Airbnb. Header photo: <a href="{hlink}" target="_blank" rel="noopener">{hby} / Unsplash</a>.</footer></main></body></html>'''
+<footer>Airbnb totals before tax. Prices and availability checked 22 Nov 2026. Tap a photo for full size, a title to open Airbnb. Header photo: <a href="{hlink}" target="_blank" rel="noopener">{hby} / Unsplash</a>.</footer></main></body></html>'''
     open(os.path.join(OUTDIR, f"{cid}.html"), 'w').write(page)
 
 tiles = ''.join(f'''<a href="{c[0]}.html" style="--acc:{c[7]};background-image:url('{HERO[c[0]][0]}?auto=format&fit=crop&w=1200&q=70')"><h2>{esc(c[1])}</h2><p>{c[3]} · {c[4]} nights</p><small>{len(c[9])} options · from S${price_from(c[9])} per person / night</small></a>''' for c in CITIES)
