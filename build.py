@@ -19,19 +19,22 @@ HERO = {
 # id, name, short, dates, nights, checkin, checkout, accent, note, listings
 CITIES = [
  ("hcmc", "Ho Chi Minh City", "HCMC", "4–7 Jan 2027", 3, "2027-01-04", "2027-01-07", "#ff9f7a",
-  "No private-pool villa near District 1 at this budget. The nearest are 7–8 km out.", [
-  ("HCMC1","27990178","Phoenix's 5BR House","District 1 (Da Kao) · 2.0 km","S$814","S$30","5 bedrooms · 5 baths","4.85★ (238) · Superhost",
-   ["Most reviewed, consistently good","Every room has its own bathroom + AC","Host fixes problems fast","Free airport pickup"],
-   ["5 floors of stairs, no lift","Weak portable AC in living room","Rooster from ~4:30am","Past ant/cockroach reports (one group moved out, Jan 2024)","5 queen beds, so 4 pairs share"]),
-  ("HCMC2","27914684","Le's 6BR House","District 1 (Tan Dinh) · 2.2 km","S$493","S$18","6 bedrooms · 6 baths","4.84★ (79)",
+  "All within 2.2 km of Ben Thanh Market. Picked from 387 listings with 3+ bathrooms.", [
+  ("HCMC1","27914684","Le's 6BR House","District 1 (Tan Dinh) · 2.2 km","S$493","S$18","6 bedrooms · 6 baths","4.84★ (79)",
    ["Only pick under budget","6 rooms, each with own bathroom + TV","Daily towel change"],
    ["Dated","Ants + mould in a bathroom (Nov 2025)","Leaky shower","No real living room","Dim phone photos"]),
-  ("HCMC3","1311605703773163437","Haina's 5BR House","District 3 · 1.6 km","S$753","S$28","5 bedrooms · 6 beds · 4.5 baths","4.88★ (16) · Superhost",
-   ["Enough beds for 9 with little sharing","Living room has AC + TV","Rooftop terrace"],
-   ["\"Old house, AC doesn't work well\" (Dec 2024)","Alley + stairs","Only 16 reviews"]),
-  ("HCMC4","39342498","Rivergate 6BR Apartments","District 4 · 1.2 km","S$841","S$31","6 bedrooms · 4 baths","4.91★ (70)",
+  ("HCMC2","27990178","Phoenix's 5BR House","District 1 (Da Kao) · 2.0 km","S$813","S$30","5 bedrooms · 5 baths","4.85★ (238) · Superhost",
+   ["Most reviewed, consistently good","Every room has its own bathroom + AC","Host fixes problems fast","Free airport pickup","Free cancellation before 30 Dec"],
+   ["5 floors of stairs, no lift","Weak portable AC in living room","Rooster from ~4:30am","Past ant/cockroach reports (one group moved out, Jan 2024)","5 queen beds, so 4 pairs share"]),
+  ("HCMC3","39342498","Rivergate 6BR Apartments","District 4 · 1.2 km","S$840","S$31","6 bedrooms · 4 baths","4.91★ (70)",
    ["64/70 five-star, none below 4★","Building pool + gym","7-Eleven downstairs, near Bui Vien"],
    ["2+ separate apartments, so the group is split","Building notice against short-term rentals","Host replies only 60% of the time","Traffic noise"]),
+  ("HCMC4","965804095820583217","4BR Duplex + Free Pickup","District 3 · 1.0 km","S$1,040","S$39","4 bedrooms · 4 baths","4.91★ (149) · Guest Favourite · Superhost",
+   ["Most reviewed this close to centre","Two living areas (one with projector)","Quiet street, café downstairs","Building rooftop pool + gym","Free airport pickup + SIM"],
+   ["Pricey","4 beds for 9 (extra mattress on request)","\"A bit dated\" (2024)","Pickup car only fits 4–7","Building gym equipment broken (Jun 2024)"]),
+  ("HCMC5","1731138706065239581","Cozy 5BR/5BA House","District 1 · 1.0 km","S$1,094","S$41","5 bedrooms · 8 beds · 5 baths","5.0★ (8) · Guest Favourite · Superhost",
+   ["Most beds + baths this close to centre","New, clean","Every review 5★"],
+   ["Priciest","Only 8 reviews","Only 1 bathroom shown in photos","No living-room AC seen","Shophouse alley"]),
  ]),
  ("danang", "Da Nang", "Da Nang", "7–11 Jan 2027", 4, "2027-01-07", "2027-01-11", "#6fd6d1",
   "Private pool + central is possible here, at about S$26–31 per person per night.", [
