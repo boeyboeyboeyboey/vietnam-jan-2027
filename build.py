@@ -13,17 +13,17 @@ def url(lid, p):
 # id, name, short, dates, nights, checkin, checkout, theme colour, note, listings
 CITIES = [
  ("hcmc", "Ho Chi Minh City", "HCMC", "4–7 Jan 2027", 3, "2027-01-04", "2027-01-07", "#b4361f",
-  "No private-pool villa near D1 at this budget. The nearest are 7–8 km out.", [
-  ("S1","27990178","Phoenix's 5BR House","D1 (Da Kao) · 2.0 km","S$814","S$30","5 bedrooms · 5 baths","4.85★ (238) · Superhost",
+  "No private-pool villa near District 1 at this budget. The nearest are 7–8 km out.", [
+  ("S1","27990178","Phoenix's 5BR House","District 1 (Da Kao) · 2.0 km","S$814","S$30","5 bedrooms · 5 baths","4.85★ (238) · Superhost",
    ["Most reviewed, consistently good","Every room has its own bathroom + AC","Host fixes problems fast","Free airport pickup"],
    ["5 floors of stairs, no lift","Weak portable AC in living room","Rooster from ~4:30am","Past ant/cockroach reports (one group moved out, Jan 2024)","5 queen beds, so 4 pairs share"]),
-  ("S2","27914684","Le's 6BR House","D1 (Tan Dinh) · 2.2 km","S$493","S$18","6 bedrooms · 6 baths","4.84★ (79)",
+  ("S2","27914684","Le's 6BR House","District 1 (Tan Dinh) · 2.2 km","S$493","S$18","6 bedrooms · 6 baths","4.84★ (79)",
    ["Only pick under budget","6 rooms, each with own bathroom + TV","Daily towel change"],
    ["Dated","Ants + mould in a bathroom (Nov 2025)","Leaky shower","No real living room","Dim phone photos"]),
-  ("S3","1311605703773163437","Haina's 5BR House","D3 · 1.6 km","S$753","S$28","5 bedrooms · 6 beds · 4.5 baths","4.88★ (16) · Superhost",
+  ("S3","1311605703773163437","Haina's 5BR House","District 3 · 1.6 km","S$753","S$28","5 bedrooms · 6 beds · 4.5 baths","4.88★ (16) · Superhost",
    ["Enough beds for 9 with little sharing","Living room has AC + TV","Rooftop terrace"],
    ["\"Old house, AC doesn't work well\" (Dec 2024)","Alley + stairs","Only 16 reviews"]),
-  ("S4","39342498","Rivergate 6BR Apartments","D4 · 1.2 km","S$841","S$31","6 bedrooms · 4 baths","4.91★ (70)",
+  ("S4","39342498","Rivergate 6BR Apartments","District 4 · 1.2 km","S$841","S$31","6 bedrooms · 4 baths","4.91★ (70)",
    ["64/70 five-star, none below 4★","Building pool + gym","7-Eleven downstairs, near Bui Vien"],
    ["2+ separate apartments, so the group is split","Building notice against short-term rentals","Host replies only 60% of the time","Traffic noise"]),
  ]),
@@ -51,7 +51,7 @@ def esc(s): return html.escape(s, quote=True)
 
 CSS = '''
 :root{--paper:#f4f2ee;--ink:#1b1a18;--mut:#6b6760;--rule:#d9d4cc;--plus:#2f7a3f;--minus:#b4361f;--surface:#fffdf9}
-@media (prefers-color-scheme:dark){:root{--paper:#151413;--ink:#efece6;--mut:#a39d93;--rule:#33302c;--plus:#7cc98a;--minus:#f08a76;--surface:#1d1b19}}
+@media (prefers-color-scheme:dark){body{--cityfg:color-mix(in srgb,var(--city) 55%,#fff)}:root{--paper:#151413;--ink:#efece6;--mut:#a39d93;--rule:#33302c;--plus:#7cc98a;--minus:#f08a76;--surface:#1d1b19}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 "Be Vietnam Pro",system-ui,sans-serif;font-variant-numeric:tabular-nums}
 a{color:inherit}
@@ -66,7 +66,7 @@ a{color:inherit}
 .opt{border-bottom:2px solid var(--ink);padding:26px 0}
 .opt:last-of-type{border-bottom:0}
 .row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:start}
-.code{font-weight:800;font-size:1.5rem;color:var(--city);border:2.5px solid var(--city);padding:2px 9px;line-height:1.2}
+.code{font-weight:800;font-size:1.5rem;color:var(--cityfg,var(--city));border:2.5px solid var(--cityfg,var(--city));padding:2px 9px;line-height:1.2}
 .row h2{margin:0;font-size:1.25rem;line-height:1.25}
 .row h2 a{text-decoration:none;border-bottom:2px solid var(--rule)}.row h2 a:hover{border-color:var(--city)}
 .meta{margin:4px 0 0;color:var(--mut);font-size:.9rem}
@@ -75,7 +75,7 @@ a{color:inherit}
 .price span{display:block;font-size:.72rem;opacity:.9;margin-top:3px}
 .price i{display:block;font-style:normal;font-size:.8rem;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,.35)}
 .strip{display:flex;gap:4px;overflow-x:auto;margin:16px 0 4px;scroll-snap-type:x proximity}
-.strip img{height:230px;width:auto;display:block;scroll-snap-align:start;background:var(--rule)}
+.strip img{height:230px;width:auto;aspect-ratio:3/2;object-fit:cover;display:block;scroll-snap-align:start;background:var(--rule)}
 .count{font-size:.78rem;color:var(--mut);margin:0 0 14px}
 .fa{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .fa h3{margin:0 0 6px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
@@ -108,7 +108,7 @@ for idx, (cid, cname, short, dates, nights, ci, co, col, note, items) in enumera
     opts = []
     for code, lid, name, loc, tot, pp, rooms, rating, pro, con in items:
         link = f"https://www.airbnb.com.sg/rooms/{lid}?check_in={ci}&check_out={co}&adults=9"
-        imgs = ''.join(f'<a href="{esc(url(lid,p))}?im_w=1200" target="_blank" rel="noopener"><img src="{esc(url(lid,p))}?im_w=480" loading="lazy" alt="{code} photo {i+1}"></a>' for i,p in enumerate(pics[lid]))
+        imgs = ''.join(f'<a href="{esc(url(lid,p))}?im_w=1200" target="_blank" rel="noopener"><img src="{esc(url(lid,p))}?im_w=480" width="345" height="230" loading="lazy" alt="{code} photo {i+1}"></a>' for i,p in enumerate(pics[lid]))
         opts.append(f'''<article class="opt" id="{code.lower()}">
 <div class="row"><span class="code">{code}</span>
 <div><h2><a href="{link}" target="_blank" rel="noopener">{esc(name)} ↗</a></h2><p class="meta">{esc(loc)}<br>{esc(rooms)} · {esc(rating)}</p></div>

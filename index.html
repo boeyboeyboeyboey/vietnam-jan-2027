@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=swap">
 <style>
 :root{--paper:#f4f2ee;--ink:#1b1a18;--mut:#6b6760;--rule:#d9d4cc;--plus:#2f7a3f;--minus:#b4361f;--surface:#fffdf9}
-@media (prefers-color-scheme:dark){:root{--paper:#151413;--ink:#efece6;--mut:#a39d93;--rule:#33302c;--plus:#7cc98a;--minus:#f08a76;--surface:#1d1b19}}
+@media (prefers-color-scheme:dark){body{--cityfg:color-mix(in srgb,var(--city) 55%,#fff)}:root{--paper:#151413;--ink:#efece6;--mut:#a39d93;--rule:#33302c;--plus:#7cc98a;--minus:#f08a76;--surface:#1d1b19}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 "Be Vietnam Pro",system-ui,sans-serif;font-variant-numeric:tabular-nums}
 a{color:inherit}
@@ -19,7 +19,7 @@ a{color:inherit}
 .opt{border-bottom:2px solid var(--ink);padding:26px 0}
 .opt:last-of-type{border-bottom:0}
 .row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:start}
-.code{font-weight:800;font-size:1.5rem;color:var(--city);border:2.5px solid var(--city);padding:2px 9px;line-height:1.2}
+.code{font-weight:800;font-size:1.5rem;color:var(--cityfg,var(--city));border:2.5px solid var(--cityfg,var(--city));padding:2px 9px;line-height:1.2}
 .row h2{margin:0;font-size:1.25rem;line-height:1.25}
 .row h2 a{text-decoration:none;border-bottom:2px solid var(--rule)}.row h2 a:hover{border-color:var(--city)}
 .meta{margin:4px 0 0;color:var(--mut);font-size:.9rem}
@@ -28,7 +28,7 @@ a{color:inherit}
 .price span{display:block;font-size:.72rem;opacity:.9;margin-top:3px}
 .price i{display:block;font-style:normal;font-size:.8rem;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,.35)}
 .strip{display:flex;gap:4px;overflow-x:auto;margin:16px 0 4px;scroll-snap-type:x proximity}
-.strip img{height:230px;width:auto;display:block;scroll-snap-align:start;background:var(--rule)}
+.strip img{height:230px;width:auto;aspect-ratio:3/2;object-fit:cover;display:block;scroll-snap-align:start;background:var(--rule)}
 .count{font-size:.78rem;color:var(--mut);margin:0 0 14px}
 .fa{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .fa h3{margin:0 0 6px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
