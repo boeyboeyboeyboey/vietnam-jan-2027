@@ -19,25 +19,13 @@ HERO = {
 # id, name, short, dates, nights, checkin, checkout, accent, note, listings
 CITIES = [
  ("hcmc", "Ho Chi Minh City", "HCMC", "4–7 Jan 2027", 3, "2027-01-04", "2027-01-07", "#ff9f7a",
-  "Ranked best first. Under 1.2 km to Ben Thanh comes first. HCMC1 is no longer available. HCMC6 and HCMC9 added later. HCMC7 and HCMC8 cut for price. All within 2.5 km of Ben Thanh Market, 3+ bathrooms.", [
+  "Ranked best first. Only houses within 1.5 km of Ben Thanh and about S$40 per person per night or less. HCMC1 was withdrawn by its host. HCMC2 and HCMC4–6 were cut as too far, HCMC7–8 as too pricey.", [
   ("HCMC3","1731138706065239581","Cozy 5BR/5BA House","District 1 · 1.0 km to Ben Thanh · 2.5 km to shopping street","S$1,091","S$40","5 bedrooms · 8 beds · 5 baths","5.0★ (9) · Guest Favourite · Superhost",
    ["Walkable to Ben Thanh (1.0 km)","Most beds + baths this close to centre","New, clean","Every review 5★"],
    ["Shopping street: 2.5 km, Grab or long walk","Only 9 reviews","Same house also listed at S$1,602, don't book that one","Only 1 bathroom shown in photos","No living-room AC seen","Shophouse alley"]),
   ("HCMC9","39879364","7BR House near Ben Thanh","District 1 · 0.4 km to Ben Thanh · 3.2 km to shopping street","S$853","S$32","7 bedrooms · 7 queen beds · 6.5 baths","4.67★ (9)",
    ["Walkable to Ben Thanh (0.4 km), closest of all","Cheaper than HCMC3 (S$32 vs S$40)","6 bedrooms have their own bathroom","Big ground-floor living room with AC","Rooftop + reading room","Washer + dryer"],
    ["Shopping street: 3.2 km, Grab or long walk","All 9 reviews are from Dec 2019 to Mar 2020, none since","Same house listed again by another host with 0 reviews","Photos show only 5 of 7 bedrooms","Neighbours close, some noise (Mar 2020)","7 queen beds, so 2 pairs share","Free cancel ends soon (5 Dec)"]),
-  ("HCMC2","1311605703773163437","Haina's 5BR House","District 3 · 1.6 km to Ben Thanh · 1.8 km to shopping street","S$753","S$28","5 bedrooms · 6 beds · 4.5 baths","4.88★ (16) · Superhost",
-   ["Walkable to Ben Thanh (1.6 km)","Enough beds for 9 with little sharing","Living room has AC + TV","Rooftop terrace"],
-   ["Shopping street: 1.8 km, Grab or long walk","\"Old house, AC doesn't work well\" (Dec 2024)","Alley","Only 16 reviews"]),
-  ("HCMC6","1672471341262461731","5BR Townhouse + Rooftop BBQ","District 1 (Da Kao) · 2.1 km to Ben Thanh · 1.7 km to shopping street","S$1,135","S$42","5 bedrooms · 7 beds · 6 baths","4.97★ (30) · Guest Favourite · Superhost",
-   ["Every bedroom has its own bathroom","Beds for 9 (3 king, 2 queen, 2 sofa beds)","Rooftop BBQ","Washer + dryer","Stores luggage before check-in and after check-out","Same hosts as the old HCMC1"],
-   ["Ben Thanh: 2.1 km, Grab or long walk","Shopping street: 1.7 km, Grab or long walk","Priciest","Wooden doors let noise through (Sep 2026)","No traffic light to cross outside (Jul 2026)"]),
-  ("HCMC4","27990178","Phoenix's 5BR House","District 1 (Da Kao) · 2.0 km to Ben Thanh · 1.8 km to shopping street","S$813","S$30","5 bedrooms · 5 baths","4.85★ (238) · Superhost",
-   ["Most reviewed, consistently good","Every room has its own bathroom + AC","Host fixes problems fast"],
-   ["Ben Thanh: 2.0 km, Grab or long walk","Shopping street: 1.8 km, Grab or long walk","Weak portable AC in living room","Rooster from ~4:30am","Past ant/cockroach reports (one group moved out, Jan 2024)","5 queen beds, so 4 pairs share"]),
-  ("HCMC5","1587035319818469396","D1 Entire-Floor Apartment","District 1 (Tan Dinh) · 2.2 km to Ben Thanh · 1.4 km to shopping street","S$567","S$21","4 bedrooms · 4 beds · 4 baths","4.5★ (8)",
-   ["Walkable to shopping street (1.4 km)","Close to budget","Good local food nearby","Whole floor to yourselves"],
-   ["Ben Thanh: 2.2 km, Grab or long walk","Only 8 reviews","Faulty shower heater (Mar 2026)","Street horn noise (Feb 2026)","Missing kitchen items, sink smell (Feb 2026)","4 beds for 9"]),
  ]),
  ("danang", "Da Nang", "Da Nang", "7–11 Jan 2027", 4, "2027-01-07", "2027-01-11", "#6fd6d1",
   "Ranked best first. Private pool + central costs about S$26–31 per person per night.", [
@@ -62,32 +50,18 @@ CITIES = [
 CANC = {'1672471341262461731': 'Free cancel until 30 Dec', '1587035319818469396': 'Free cancel until 3 Jan', '1575977622753200671': 'No free cancellation', '1483784188953758037': 'Free cancel until 30 Dec', '27914684': 'No free cancellation', '1697772649812663470': 'Free cancel until 3 Jan', '1311605703773163437': 'Free cancel until 3 Jan', '27990178': 'Free cancel until 30 Dec', '39342498': 'No free cancellation', '965804095820583217': 'Free cancel until 30 Dec', '1731138706065239581': 'Free cancel until 30 Dec', '1500369668192839406': 'Free cancel until 8 Dec', '1499048958220731670': 'Free cancel until 8 Dec', '1119292625144112269': 'Free cancel until 8 Dec', '1598281711142232998': 'Free cancel until 24 Dec', '1173705612210421870': 'Free cancel until 2 Jan', '1386982353850299078': 'Free cancel until 30 Dec', '39879364': 'Free cancel until 5 Dec', '1733492588128339446': 'Free cancel until 3 Jan'}
 WISH = set()
 WISH_OUT = {"hcmc": [
- ("Cau Kho 3BR, District 1","S$473","1483784188953758037","Too far: 2.2 km to Ben Thanh, 3.7 km to shopping street. Oct 2025: sewage backup flooded the ground floor."),
- ("Grand Riverside 4BR, District 4","S$585","1232973284686915745","Only 2 bathrooms and 4 beds for 9. Apr 2026: a bathroom unusable + mould. Jun 2026: host charged a guest for a sheet they say they didn't damage."),
- ("The Echo D1 3BR","S$543","1380356239307975966","Only 2 bathrooms and 4 beds for 9. Nov 2025 1★: \"looked NOTHING like the photos\", dirty."),
 ]}
 CHECKED_OUT = {"hcmc": [
- ("HCMC7: Haina's 6BR House, Bui Vien","S$1,374","1386982353850299078","0.9 km, 4.91★ (81), but S$51 per person per night."),
- ("HCMC8: Japanese 5BR Townhouse","S$1,458","1733492588128339446","1.0 km, 5.0★ (6), but S$54 per person per night."),
- ("Cherry Blossom Calmette 7BR","S$1,593–2,547","1484669482261429245","0.6 km. Rooftop city view, but Apr 2026 1★: \"very dirty\". Was a small hotel, rooms have their own locks. Listed twice at different prices. Some reviews look copied."),
- ("Cherry Blossom Bui Vien 6BR","S$1,170–1,919","1468701455317785569","1.1 km. Oct 2026 2★: rooms differ from photos, broken tap, cloudy water. Hostel-style key cards, Bui Vien noise. Listed 3 times."),
- ("Luxury Family Stay 5BR","S$1,602","1743536761663263255","Same house as HCMC3 at a higher price."),
+ ("Cherry Blossom Bui Vien 6BR","from S$1,170","1468701455317785569","1.1 km. Oct 2026 2★: rooms differ from photos, broken tap, cloudy water. Hostel-style key cards, Bui Vien noise. Listed 3 times."),
  ("Central 7BR House","S$920","40789691","Same text as HCMC9 under another host, 0 reviews."),
  ("Japanese Home 5BR","S$1,086","1735427000719449892","1.0 km. No reviews, almost no description."),
  ("Luxury Villa 5BR","S$1,242","1697600535579250591","1.0 km. Host is Vihomes (rejected before). Description warns photos may not match. 1 hidden review."),
  ("District 3 Alley House 5BR","S$728","1459896296341870618","1.0 km, cheap, living room has AC. No reviews, 3 full baths, 5 beds for 9."),
  ("Japandi 5BR","S$586","1820275252892652014","1.1 km. No reviews, 5 beds for 9."),
  ("Oula Home 4BR","S$690","1755119692483380160","0.9 km. Washer is in the building, so likely an apartment. 1 hidden review."),
- ("Haina's 6BR, Nguyen Cu Trinh","S$1,120","1469368568115213026","1.5 km to Ben Thanh, too far. 4.83★ (63), same host as HCMC2."),
- ("Ensuite 6BR near Bui Vien","S$1,117","1783917509438296964","1.6 km, too far. 5.0★ (7)."),
- ("House for 14–16, District 1","S$1,891","1297014489961274442","1.4 km and S$70 per person per night."),
- ("Luxury 6BR Villa, sauna","S$2,568","1763826597011214749","0.9 km, 5.0★ (16), but S$95 per person per night."),
- ("7BR 12-bed house","S$2,026","1638432784352009395","1.2 km. No reviews, S$75 per person per night."),
- ("Thien Vi House (5 listings)","S$1,756–5,275","1799978339713900629","All new, no reviews, S$65–195 per person per night."),
- ("Entire Villa 4 or 7 ensuite (3 listings)","S$1,276–2,850","1626126945604830886","4BR ones have 4 beds for 9. The 7BR is S$106 per person per night."),
- ("Other 4–5BR houses (3 listings)","S$681–961","1334823230471706143","1.4–1.6 km, no reviews."),
+ ("Haina's 6BR, Nguyen Cu Trinh","S$1,120","1469368568115213026","1.5 km to Ben Thanh, over 1.2 km. 4.83★ (63), S$41 per person per night. Reviews not read yet."),
+ ("Other 5BR houses (2 listings)","S$681–914","1334823230471706143","1.4–1.5 km, no reviews."),
  ("Bui Vien homestays (2 listings)","S$368–375","1043434707923558492","3 bedrooms, rated 3.9–4.0."),
- ("Resort villas with free car to Nha Trang (3 listings)","S$3,156–8,353","15979750","Odd listings, far over budget."),
  ("About 85 apartments","","","Cut for the apartment legal risk that lost HCMC1."),
 ]}
 
