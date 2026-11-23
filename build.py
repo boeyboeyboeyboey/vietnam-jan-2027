@@ -19,10 +19,7 @@ HERO = {
 # id, name, short, dates, nights, checkin, checkout, accent, note, listings
 CITIES = [
  ("hcmc", "Ho Chi Minh City", "HCMC", "4–7 Jan 2027", 3, "2027-01-04", "2027-01-07", "#ff9f7a",
-  "Ranked best first, distance to Ben Thanh counts most. All within 2.5 km of Ben Thanh Market, 3+ bathrooms.", [
-  ("HCMC1","965804095820583217","4BR Duplex","District 3 · 1.0 km to Ben Thanh · 1.9 km to shopping street","S$1,040","S$39","4 bedrooms · 4 baths","4.91★ (149) · Guest Favourite · Superhost",
-   ["Walkable to Ben Thanh (1.0 km)","Most reviewed this close to centre","Two living areas (one with projector)","Quiet street, café downstairs","Building rooftop pool + gym"],
-   ["Shopping street: 1.9 km, Grab or long walk","Pricey","4 beds for 9 (extra mattress on request)","\"A bit dated\" (2024)","Building gym equipment broken (Jun 2024)"]),
+  "HCMC1 is no longer available. Ranked best first, distance to Ben Thanh counts most. HCMC6 added later. All within 2.5 km of Ben Thanh Market, 3+ bathrooms.", [
   ("HCMC2","1311605703773163437","Haina's 5BR House","District 3 · 1.6 km to Ben Thanh · 1.8 km to shopping street","S$753","S$28","5 bedrooms · 6 beds · 4.5 baths","4.88★ (16) · Superhost",
    ["Walkable to Ben Thanh (1.6 km)","Enough beds for 9 with little sharing","Living room has AC + TV","Rooftop terrace"],
    ["Shopping street: 1.8 km, Grab or long walk","\"Old house, AC doesn't work well\" (Dec 2024)","Alley","Only 16 reviews"]),
@@ -35,6 +32,9 @@ CITIES = [
   ("HCMC5","1587035319818469396","D1 Entire-Floor Apartment","District 1 (Tan Dinh) · 2.2 km to Ben Thanh · 1.4 km to shopping street","S$567","S$21","4 bedrooms · 4 beds · 4 baths","4.5★ (8)",
    ["Walkable to shopping street (1.4 km)","Close to budget","Good local food nearby","Whole floor to yourselves"],
    ["Ben Thanh: 2.2 km, Grab or long walk","Only 8 reviews","Faulty shower heater (Mar 2026)","Street horn noise (Feb 2026)","Missing kitchen items, sink smell (Feb 2026)","4 beds for 9"]),
+  ("HCMC6","1672471341262461731","5BR Townhouse + Rooftop BBQ","District 1 (Da Kao) · 2.1 km to Ben Thanh · 1.7 km to shopping street","S$1,135","S$42","5 bedrooms · 7 beds · 6 baths","4.97★ (30) · Guest Favourite · Superhost",
+   ["Every bedroom has its own bathroom","Beds for 9 (3 king, 2 queen, 2 sofa beds)","Rooftop BBQ","Washer + dryer","Stores luggage before check-in and after check-out","Same hosts as the old HCMC1"],
+   ["Ben Thanh: 2.1 km, Grab or long walk","Shopping street: 1.7 km, Grab or long walk","Priciest","Wooden doors let noise through (Sep 2026)","No traffic light to cross outside (Jul 2026)"]),
  ]),
  ("danang", "Da Nang", "Da Nang", "7–11 Jan 2027", 4, "2027-01-07", "2027-01-11", "#6fd6d1",
   "Ranked best first. Private pool + central costs about S$26–31 per person per night.", [
@@ -56,7 +56,7 @@ CITIES = [
  ]),
 ]
 
-CANC = {'1587035319818469396': 'Free cancel until 3 Jan', '1575977622753200671': 'No free cancellation', '1483784188953758037': 'Free cancel until 30 Dec', '27914684': 'No free cancellation', '1697772649812663470': 'Free cancel until 3 Jan', '1311605703773163437': 'Free cancel until 3 Jan', '27990178': 'Free cancel until 30 Dec', '39342498': 'No free cancellation', '965804095820583217': 'Free cancel until 30 Dec', '1731138706065239581': 'Free cancel until 30 Dec', '1500369668192839406': 'Free cancel until 8 Dec', '1499048958220731670': 'Free cancel until 8 Dec', '1119292625144112269': 'Free cancel until 8 Dec', '1598281711142232998': 'Free cancel until 24 Dec', '1173705612210421870': 'Free cancel until 2 Jan'}
+CANC = {'1672471341262461731': 'Free cancel until 30 Dec', '1587035319818469396': 'Free cancel until 3 Jan', '1575977622753200671': 'No free cancellation', '1483784188953758037': 'Free cancel until 30 Dec', '27914684': 'No free cancellation', '1697772649812663470': 'Free cancel until 3 Jan', '1311605703773163437': 'Free cancel until 3 Jan', '27990178': 'Free cancel until 30 Dec', '39342498': 'No free cancellation', '965804095820583217': 'Free cancel until 30 Dec', '1731138706065239581': 'Free cancel until 30 Dec', '1500369668192839406': 'Free cancel until 8 Dec', '1499048958220731670': 'Free cancel until 8 Dec', '1119292625144112269': 'Free cancel until 8 Dec', '1598281711142232998': 'Free cancel until 24 Dec', '1173705612210421870': 'Free cancel until 2 Jan'}
 WISH = set()
 WISH_OUT = {"hcmc": [
  ("Cau Kho 3BR, District 1","S$473","1483784188953758037","Too far: 2.2 km to Ben Thanh, 3.7 km to shopping street. Oct 2025: sewage backup flooded the ground floor."),
@@ -149,7 +149,7 @@ for idx, (cid, cname, short, dates, nights, ci, co, acc, note, items) in enumera
         imgs = ''.join(f'<a href="{esc(url(lid,p))}?im_w=1200" target="_blank" rel="noopener"><img src="{esc(url(lid,p))}?im_w=480" width="345" height="230" loading="lazy" alt="{code} photo {i+1}"></a>' for i,p in enumerate(pics[lid]))
         opts.append(f'''<article class="opt" id="{code.lower()}">
 <div class="row"><span class="code">{code}</span>
-<div><h2><a href="{link}" target="_blank" rel="noopener">{esc(name)} ↗</a>{WISHTAG if lid in WISH else ""}{TOPTAG if code.endswith("1") and not code[-2].isdigit() else ""}</h2><p class="meta">{esc(loc)}<br>{esc(rooms)} · {esc(rating)}</p></div>
+<div><h2><a href="{link}" target="_blank" rel="noopener">{esc(name)} ↗</a>{WISHTAG if lid in WISH else ""}{TOPTAG if code in ("HCMC2", "DN1") else ""}</h2><p class="meta">{esc(loc)}<br>{esc(rooms)} · {esc(rating)}</p></div>
 <div class="price"><b>{pp}</b><span>per person / night</span><i>{tot} total · {nights} nights</i><em class="{"no" if CANC[lid].startswith("No") else "ok"}">{CANC[lid]}</em></div></div>
 <div class="strip">{imgs}</div><p class="count">{len(pics[lid])} photos · swipe →</p>
 <div class="fa"><div class="for"><h3>For</h3><ul>{''.join(f"<li>{esc(x)}</li>" for x in pro)}</ul></div>
