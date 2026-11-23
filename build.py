@@ -20,12 +20,12 @@ HERO = {
 CITIES = [
  ("hcmc", "Ho Chi Minh City", "HCMC", "4–7 Jan 2027", 3, "2027-01-04", "2027-01-07", "#ff9f7a",
   "Ranked best first. Only places within 1.5 km of Ben Thanh and about S$40 per person per night or less. HCMC1 was withdrawn by its host. HCMC2, 4 and 5 were cut as too far from Ben Thanh.", [
-  ("HCMC3","1731138706065239581","Cozy 5BR/5BA House","District 1 · 1.0 km to Ben Thanh · 2.5 km to shopping street","S$1,091","S$40","5 bedrooms · 8 beds · 5 baths","5.0★ (9) · Guest Favourite · Superhost",
-   ["Walkable to Ben Thanh (1.0 km)","Most beds + baths this close to centre","New, clean","Every review 5★","Living room has AC + 65\" TV","Photos show all 5 bathrooms"],
-   ["Shopping street: 2.5 km, Grab or long walk","Only 9 reviews","Same house also listed at S$1,602, don't book that one","Narrow shophouse: living room gets daylight from one end only"]),
   ("HCMC6","19831286","Ben Thanh Tower 3BR Apartment","District 1 · 0.4 km to Ben Thanh · 3.0 km to shopping street","S$970","S$36","3 bedrooms · 4 beds + 2 sofa beds · 3 baths","4.72★ (54)",
    ["Walkable to Ben Thanh (0.4 km)","Big bright living + dining room with city view (145 m² flat)","8-seat dining table","Washer, AC, TV","Pool and gym in the building","2026 reviews all positive"],
    ["Shopping street: 3.0 km, Grab or long walk","May be 2 flats joined: \"actually two apartments\" (Nov 2019). 2026 photos show one living room","Older complaints: ants (2019), dirty (Jun 2020), bugs (Jan 2023), slow drain (Nov 2023)","Rooftop bar music heard (Oct 2018)","Free cancel ends soon (5 Dec)"]),
+  ("HCMC3","1731138706065239581","Cozy 5BR/5BA House","District 1 · 1.0 km to Ben Thanh · 2.5 km to shopping street","S$1,091","S$40","5 bedrooms · 8 beds · 5 baths","5.0★ (9) · Guest Favourite · Superhost",
+   ["Walkable to Ben Thanh (1.0 km)","Most beds + baths this close to centre","New, clean","Every review 5★","Living room has AC + 65\" TV","Photos show all 5 bathrooms"],
+   ["Shopping street: 2.5 km, Grab or long walk","Only 9 reviews","Same house also listed at S$1,602, don't book that one","Narrow shophouse: living room gets daylight from one end only"]),
   ("HCMC7","1510607297508263594","4BR Apartment, Ben Thanh / Bui Vien","District 1 · 1.0 km to Ben Thanh · 2.7 km to shopping street","S$855","S$32","4 bedrooms · 5 queens + 1 single + 2 sofas · 3 baths","4.88★ (17)",
    ["Walkable to Ben Thanh (1.0 km)","One open living, dining and kitchen room","All 17 reviews 4–5★","Strong AC, clean toilets (Apr 2026)","24/7 lobby guard","Washer, TV"],
    ["Shopping street: 2.7 km, Grab or long walk","\"Advertised as 7 beds but really 5 beds with two couches\" (Jun 2026)","Living room lighting is weak (Jul 2026)","One bedroom opens through another (Mar 2026)","Free cancel ends soon (5 Dec)"]),
@@ -163,7 +163,7 @@ for idx, (cid, cname, short, dates, nights, ci, co, acc, note, items) in enumera
         imgs = ''.join(f'<a href="{esc(url(lid,p))}?im_w=1200" target="_blank" rel="noopener"><img src="{esc(url(lid,p))}?im_w=480" width="345" height="230" loading="lazy" alt="{code} photo {i+1}"></a>' for i,p in enumerate(pics[lid]))
         opts.append(f'''<article class="opt" id="{code.lower()}">
 <div class="row"><span class="code">{code}</span>
-<div><h2><a href="{link}" target="_blank" rel="noopener">{esc(name)} ↗</a>{WISHTAG if lid in WISH else ""}{TOPTAG if code in ("HCMC3", "DN1") else ""}</h2><p class="meta">{esc(loc)}<br>{esc(rooms)} · {esc(rating)}</p></div>
+<div><h2><a href="{link}" target="_blank" rel="noopener">{esc(name)} ↗</a>{WISHTAG if lid in WISH else ""}{TOPTAG if code in ("HCMC6", "DN1") else ""}</h2><p class="meta">{esc(loc)}<br>{esc(rooms)} · {esc(rating)}</p></div>
 <div class="price"><b>{pp}</b><span>per person / night</span><i>{tot} total · {nights} nights</i><em class="{"no" if CANC[lid].startswith("No") else "ok"}">{CANC[lid]}</em></div></div>
 <div class="strip">{imgs}</div><p class="count">{len(pics[lid])} photos · swipe →</p>
 <div class="fa"><div class="for"><h3>For</h3><ul>{''.join(f"<li>{esc(x)}</li>" for x in pro)}</ul></div>
