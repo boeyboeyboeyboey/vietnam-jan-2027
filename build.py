@@ -1,4 +1,4 @@
-import json, base64, html, sys, os
+import json, base64, html, sys, os, re
 pics = json.load(open(sys.argv[1]))
 OUTDIR = sys.argv[2]
 
@@ -19,31 +19,31 @@ HERO = {
 # id, name, short, dates, nights, checkin, checkout, accent, note, listings
 CITIES = [
  ("hcmc", "Ho Chi Minh City", "HCMC", "4–7 Jan 2027", 3, "2027-01-04", "2027-01-07", "#ff9f7a",
-  "HCMC1 is no longer available. Ranked best first, distance to Ben Thanh counts most. HCMC6–9 added later. All within 2.5 km of Ben Thanh Market, 3+ bathrooms.", [
-  ("HCMC2","1311605703773163437","Haina's 5BR House","District 3 · 1.6 km to Ben Thanh · 1.8 km to shopping street","S$753","S$28","5 bedrooms · 6 beds · 4.5 baths","4.88★ (16) · Superhost",
-   ["Walkable to Ben Thanh (1.6 km)","Enough beds for 9 with little sharing","Living room has AC + TV","Rooftop terrace"],
-   ["Shopping street: 1.8 km, Grab or long walk","\"Old house, AC doesn't work well\" (Dec 2024)","Alley","Only 16 reviews"]),
+  "Ranked best first. Under 1.2 km to Ben Thanh comes first. HCMC1 is no longer available. HCMC6–9 added later. All within 2.5 km of Ben Thanh Market, 3+ bathrooms.", [
   ("HCMC3","1731138706065239581","Cozy 5BR/5BA House","District 1 · 1.0 km to Ben Thanh · 2.5 km to shopping street","S$1,091","S$40","5 bedrooms · 8 beds · 5 baths","5.0★ (9) · Guest Favourite · Superhost",
    ["Walkable to Ben Thanh (1.0 km)","Most beds + baths this close to centre","New, clean","Every review 5★"],
    ["Shopping street: 2.5 km, Grab or long walk","Only 9 reviews","Same house also listed at S$1,602, don't book that one","Only 1 bathroom shown in photos","No living-room AC seen","Shophouse alley"]),
+  ("HCMC7","1386982353850299078","Haina's 6BR House, Bui Vien","District 1 (Pham Ngu Lao) · 0.9 km to Ben Thanh · 3.0 km to shopping street","S$1,374","S$51","6 bedrooms · 6 queen beds · 6 baths","4.91★ (81)",
+   ["Walkable to Ben Thanh (0.9 km)","Every bedroom has its own bathroom","Big living room with AC + 60\" TV","81 reviews, almost all 5★","Quiet alley, 2 min to Bui Vien","Stores bags before and after (May 2026)"],
+   ["Shopping street: 3.0 km, Grab or long walk","Upper floors hear Bui Vien at night (Jan 2026)","One inner room has no window, small bathroom (Jul 2026)","TV and 2 AC remotes broken (Sep 2026)","6 queen beds, so 3 pairs share (sofa beds cost extra)","Same host as HCMC2"]),
+  ("HCMC8","1733492588128339446","Japanese 5BR Townhouse","District 1 (Le Thi Rieng) · 1.0 km to Ben Thanh · 2.5 km to shopping street","S$1,458","S$54","5 bedrooms · 7 queen beds · 5 baths","5.0★ (6)",
+   ["Walkable to Ben Thanh (1.0 km)","Every bedroom has its own bathroom","Rooftop BBQ terrace","Long living room with big sofa","All reviews 5★ (2026), a group of 10 stayed","Stores luggage (Oct 2026)"],
+   ["Shopping street: 2.5 km, Grab or long walk","Priciest","Only 6 reviews","Church bells, even at dawn (Oct 2026)","\"Exterior looks different\" from photos (Oct 2026)","AC only promised in bedrooms"]),
+  ("HCMC9","39879364","7BR House near Ben Thanh","District 1 · 0.4 km to Ben Thanh · 3.2 km to shopping street","S$853","S$32","7 bedrooms · 7 queen beds · 6.5 baths","4.67★ (9)",
+   ["Walkable to Ben Thanh (0.4 km), closest of all","Cheaper than HCMC3 (S$32 vs S$40)","6 bedrooms have their own bathroom","Big ground-floor living room with AC","Rooftop + reading room","Washer + dryer"],
+   ["Shopping street: 3.2 km, Grab or long walk","All 9 reviews are from Dec 2019 to Mar 2020, none since","Same house listed again by another host with 0 reviews","Photos show only 5 of 7 bedrooms","Neighbours close, some noise (Mar 2020)","7 queen beds, so 2 pairs share","Free cancel ends soon (5 Dec)"]),
+  ("HCMC2","1311605703773163437","Haina's 5BR House","District 3 · 1.6 km to Ben Thanh · 1.8 km to shopping street","S$753","S$28","5 bedrooms · 6 beds · 4.5 baths","4.88★ (16) · Superhost",
+   ["Walkable to Ben Thanh (1.6 km)","Enough beds for 9 with little sharing","Living room has AC + TV","Rooftop terrace"],
+   ["Shopping street: 1.8 km, Grab or long walk","\"Old house, AC doesn't work well\" (Dec 2024)","Alley","Only 16 reviews"]),
+  ("HCMC6","1672471341262461731","5BR Townhouse + Rooftop BBQ","District 1 (Da Kao) · 2.1 km to Ben Thanh · 1.7 km to shopping street","S$1,135","S$42","5 bedrooms · 7 beds · 6 baths","4.97★ (30) · Guest Favourite · Superhost",
+   ["Every bedroom has its own bathroom","Beds for 9 (3 king, 2 queen, 2 sofa beds)","Rooftop BBQ","Washer + dryer","Stores luggage before check-in and after check-out","Same hosts as the old HCMC1"],
+   ["Ben Thanh: 2.1 km, Grab or long walk","Shopping street: 1.7 km, Grab or long walk","Priciest","Wooden doors let noise through (Sep 2026)","No traffic light to cross outside (Jul 2026)"]),
   ("HCMC4","27990178","Phoenix's 5BR House","District 1 (Da Kao) · 2.0 km to Ben Thanh · 1.8 km to shopping street","S$813","S$30","5 bedrooms · 5 baths","4.85★ (238) · Superhost",
    ["Most reviewed, consistently good","Every room has its own bathroom + AC","Host fixes problems fast"],
    ["Ben Thanh: 2.0 km, Grab or long walk","Shopping street: 1.8 km, Grab or long walk","Weak portable AC in living room","Rooster from ~4:30am","Past ant/cockroach reports (one group moved out, Jan 2024)","5 queen beds, so 4 pairs share"]),
   ("HCMC5","1587035319818469396","D1 Entire-Floor Apartment","District 1 (Tan Dinh) · 2.2 km to Ben Thanh · 1.4 km to shopping street","S$567","S$21","4 bedrooms · 4 beds · 4 baths","4.5★ (8)",
    ["Walkable to shopping street (1.4 km)","Close to budget","Good local food nearby","Whole floor to yourselves"],
    ["Ben Thanh: 2.2 km, Grab or long walk","Only 8 reviews","Faulty shower heater (Mar 2026)","Street horn noise (Feb 2026)","Missing kitchen items, sink smell (Feb 2026)","4 beds for 9"]),
-  ("HCMC6","1672471341262461731","5BR Townhouse + Rooftop BBQ","District 1 (Da Kao) · 2.1 km to Ben Thanh · 1.7 km to shopping street","S$1,135","S$42","5 bedrooms · 7 beds · 6 baths","4.97★ (30) · Guest Favourite · Superhost",
-   ["Every bedroom has its own bathroom","Beds for 9 (3 king, 2 queen, 2 sofa beds)","Rooftop BBQ","Washer + dryer","Stores luggage before check-in and after check-out","Same hosts as the old HCMC1"],
-   ["Ben Thanh: 2.1 km, Grab or long walk","Shopping street: 1.7 km, Grab or long walk","Priciest","Wooden doors let noise through (Sep 2026)","No traffic light to cross outside (Jul 2026)"]),
-  ("HCMC7","1386982353850299078","Haina's 6BR House, Bui Vien","District 1 (Pham Ngu Lao) · 0.9 km to Ben Thanh · 3.0 km to shopping street","S$1,374","S$51","6 bedrooms · 6 queen beds · 6 baths","4.91★ (81)",
-   ["Walkable to Ben Thanh (0.9 km)","Every bedroom has its own bathroom","Big living room with AC + 60\" TV","81 reviews, almost all 5★","Quiet alley, 2 min to Bui Vien","Stores bags before and after (May 2026)"],
-   ["Shopping street: 3.0 km, Grab or long walk","Upper floors hear Bui Vien at night (Jan 2026)","One inner room has no window, small bathroom (Jul 2026)","TV and 2 AC remotes broken (Sep 2026)","6 queen beds, so 3 pairs share (sofa beds cost extra)","Same host as HCMC2"]),
-  ("HCMC8","39879364","7BR House near Ben Thanh","District 1 · 0.4 km to Ben Thanh · 3.2 km to shopping street","S$853","S$32","7 bedrooms · 7 queen beds · 6.5 baths","4.67★ (9)",
-   ["Walkable to Ben Thanh (0.4 km), closest of all","Cheaper than HCMC3 (S$32 vs S$40)","6 bedrooms have their own bathroom","Big ground-floor living room with AC","Rooftop + reading room","Washer + dryer"],
-   ["Shopping street: 3.2 km, Grab or long walk","All 9 reviews are from Dec 2019 to Mar 2020, none since","Same house listed again by another host with 0 reviews","Photos show only 5 of 7 bedrooms","Neighbours close, some noise (Mar 2020)","7 queen beds, so 2 pairs share","Free cancel ends soon (5 Dec)"]),
-  ("HCMC9","1733492588128339446","Japanese 5BR Townhouse","District 1 (Le Thi Rieng) · 1.0 km to Ben Thanh · 2.5 km to shopping street","S$1,458","S$54","5 bedrooms · 7 queen beds · 5 baths","5.0★ (6)",
-   ["Walkable to Ben Thanh (1.0 km)","Every bedroom has its own bathroom","Rooftop BBQ terrace","Long living room with big sofa","All reviews 5★ (2026), a group of 10 stayed","Stores luggage (Oct 2026)"],
-   ["Shopping street: 2.5 km, Grab or long walk","Priciest","Only 6 reviews","Church bells, even at dawn (Oct 2026)","\"Exterior looks different\" from photos (Oct 2026)","AC only promised in bedrooms"]),
  ]),
  ("danang", "Da Nang", "Da Nang", "7–11 Jan 2027", 4, "2027-01-07", "2027-01-11", "#6fd6d1",
   "Ranked best first. Private pool + central costs about S$26–31 per person per night.", [
@@ -76,7 +76,7 @@ CHECKED_OUT = {"hcmc": [
  ("Cherry Blossom Calmette 7BR","S$1,593–2,547","1484669482261429245","0.6 km. Rooftop city view, but Apr 2026 1★: \"very dirty\". Was a small hotel, rooms have their own locks. Listed twice at different prices. Some reviews look copied."),
  ("Cherry Blossom Bui Vien 6BR","S$1,170–1,919","1468701455317785569","1.1 km. Oct 2026 2★: rooms differ from photos, broken tap, cloudy water. Hostel-style key cards, Bui Vien noise. Listed 3 times."),
  ("Luxury Family Stay 5BR","S$1,602","1743536761663263255","Same house as HCMC3 at a higher price."),
- ("Central 7BR House","S$920","40789691","Same text as HCMC8 under another host, 0 reviews."),
+ ("Central 7BR House","S$920","40789691","Same text as HCMC9 under another host, 0 reviews."),
  ("Japanese Home 5BR","S$1,086","1735427000719449892","1.0 km. No reviews, almost no description."),
  ("Luxury Villa 5BR","S$1,242","1697600535579250591","1.0 km. Host is Vihomes (rejected before). Description warns photos may not match. 1 hidden review."),
  ("District 3 Alley House 5BR","S$728","1459896296341870618","1.0 km, cheap, living room has AC. No reviews, 3 full baths, 5 beds for 9."),
@@ -135,7 +135,7 @@ ul{margin:0;padding:0;list-style:none}li{padding:4px 0 4px 18px;position:relativ
 .against li::before{content:"−";position:absolute;left:2px;color:var(--minus);font-weight:800}
 span.wish{display:inline-block;margin-left:8px;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--bg);background:var(--acc);padding:2px 7px;border-radius:3px;vertical-align:middle}
 span.wish.pick{background:var(--ink);color:var(--bg)}
-.wl{border:1px dashed var(--rule);border-radius:6px;padding:14px 18px;margin:0 0 18px}.wl h3{margin:0 0 6px;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}.wl li{border-top:1px solid var(--rule);padding:6px 0;font-size:.92rem}.wl li::before{content:none}.wl b{color:var(--acc)}
+.sep{margin:28px 0 12px;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}.wl{border:1px dashed var(--rule);border-radius:6px;padding:14px 18px;margin:0 0 18px}.wl h3{margin:0 0 6px;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}.wl li{border-top:1px solid var(--rule);padding:6px 0;font-size:.92rem}.wl li::before{content:none}.wl b{color:var(--acc)}
 footer{color:var(--mut);font-size:.78rem;padding-top:6px}
 footer a{color:var(--mut)}
 @media (max-width:620px){.row{grid-template-columns:auto 1fr}.price{grid-column:1/-1;text-align:left;border-left:0;border-top:1px solid var(--rule);padding:10px 0 0;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.price span,.price i{margin:0}.strip img{height:180px}.fa{grid-template-columns:1fr}.hero{min-height:300px}}
@@ -178,12 +178,16 @@ for idx, (cid, cname, short, dates, nights, ci, co, acc, note, items) in enumera
     other = CITIES[1-idx]
     himg, hby, hlink = HERO[cid]
     opts = []
+    far_done = False
     for code, lid, name, loc, tot, pp, rooms, rating, pro, con in items:
+        m = re.search(r'([\d.]+) km to Ben Thanh', loc)
+        if m and float(m.group(1)) > 1.2 and not far_done:
+            opts.append('<h3 class="sep">Over 1.2 km from Ben Thanh</h3>'); far_done = True
         link = f"https://www.airbnb.com.sg/rooms/{lid}?check_in={ci}&check_out={co}&adults=9"
         imgs = ''.join(f'<a href="{esc(url(lid,p))}?im_w=1200" target="_blank" rel="noopener"><img src="{esc(url(lid,p))}?im_w=480" width="345" height="230" loading="lazy" alt="{code} photo {i+1}"></a>' for i,p in enumerate(pics[lid]))
         opts.append(f'''<article class="opt" id="{code.lower()}">
 <div class="row"><span class="code">{code}</span>
-<div><h2><a href="{link}" target="_blank" rel="noopener">{esc(name)} ↗</a>{WISHTAG if lid in WISH else ""}{TOPTAG if code in ("HCMC2", "DN1") else ""}</h2><p class="meta">{esc(loc)}<br>{esc(rooms)} · {esc(rating)}</p></div>
+<div><h2><a href="{link}" target="_blank" rel="noopener">{esc(name)} ↗</a>{WISHTAG if lid in WISH else ""}{TOPTAG if code in ("HCMC3", "DN1") else ""}</h2><p class="meta">{esc(loc)}<br>{esc(rooms)} · {esc(rating)}</p></div>
 <div class="price"><b>{pp}</b><span>per person / night</span><i>{tot} total · {nights} nights</i><em class="{"no" if CANC[lid].startswith("No") else "ok"}">{CANC[lid]}</em></div></div>
 <div class="strip">{imgs}</div><p class="count">{len(pics[lid])} photos · swipe →</p>
 <div class="fa"><div class="for"><h3>For</h3><ul>{''.join(f"<li>{esc(x)}</li>" for x in pro)}</ul></div>
