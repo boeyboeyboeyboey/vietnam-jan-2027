@@ -19,13 +19,19 @@ HERO = {
 # id, name, short, dates, nights, checkin, checkout, accent, note, listings
 CITIES = [
  ("hcmc", "Ho Chi Minh City", "HCMC", "4–7 Jan 2027", 3, "2027-01-04", "2027-01-07", "#ff9f7a",
-  "Ranked best first. Only houses within 1.5 km of Ben Thanh and about S$40 per person per night or less. HCMC1 was withdrawn by its host. HCMC2 and HCMC4–6 were cut as too far, HCMC7–8 as too pricey.", [
+  "Ranked best first. Only places within 1.5 km of Ben Thanh and about S$40 per person per night or less. HCMC1 was withdrawn by its host. HCMC2, 4 and 5 were cut as too far from Ben Thanh.", [
   ("HCMC3","1731138706065239581","Cozy 5BR/5BA House","District 1 · 1.0 km to Ben Thanh · 2.5 km to shopping street","S$1,091","S$40","5 bedrooms · 8 beds · 5 baths","5.0★ (9) · Guest Favourite · Superhost",
    ["Walkable to Ben Thanh (1.0 km)","Most beds + baths this close to centre","New, clean","Every review 5★","Living room has AC + 65\" TV","Photos show all 5 bathrooms"],
    ["Shopping street: 2.5 km, Grab or long walk","Only 9 reviews","Same house also listed at S$1,602, don't book that one","Narrow shophouse: living room gets daylight from one end only"]),
-  ("HCMC9","39879364","7BR House near Ben Thanh","District 1 · 0.4 km to Ben Thanh · 3.2 km to shopping street","S$853","S$32","7 bedrooms · 7 queen beds · 6.5 baths","4.67★ (9)",
+  ("HCMC6","19831286","Ben Thanh Tower 3BR Apartment","District 1 · 0.4 km to Ben Thanh · 3.0 km to shopping street","S$970","S$36","3 bedrooms · 4 beds + 2 sofa beds · 3 baths","4.72★ (54)",
+   ["Walkable to Ben Thanh (0.4 km)","Big bright living + dining room with city view (145 m² flat)","8-seat dining table","Washer, AC, TV","Pool and gym in the building","2026 reviews all positive"],
+   ["Shopping street: 3.0 km, Grab or long walk","May be 2 flats joined: \"actually two apartments\" (Nov 2019). 2026 photos show one living room","Older complaints: ants (2019), dirty (Jun 2020), bugs (Jan 2023), slow drain (Nov 2023)","Rooftop bar music heard (Oct 2018)","Free cancel ends soon (5 Dec)"]),
+  ("HCMC7","1510607297508263594","4BR Apartment, Ben Thanh / Bui Vien","District 1 · 1.0 km to Ben Thanh · 2.7 km to shopping street","S$855","S$32","4 bedrooms · 5 queens + 1 single + 2 sofas · 3 baths","4.88★ (17)",
+   ["Walkable to Ben Thanh (1.0 km)","One open living, dining and kitchen room","All 17 reviews 4–5★","Strong AC, clean toilets (Apr 2026)","24/7 lobby guard","Washer, TV"],
+   ["Shopping street: 2.7 km, Grab or long walk","\"Advertised as 7 beds but really 5 beds with two couches\" (Jun 2026)","Living room lighting is weak (Jul 2026)","One bedroom opens through another (Mar 2026)","Free cancel ends soon (5 Dec)"]),
+  ("HCMC8","39879364","7BR House near Ben Thanh","District 1 · 0.4 km to Ben Thanh · 3.2 km to shopping street","S$853","S$32","7 bedrooms · 7 queen beds · 6.5 baths","4.67★ (9)",
    ["Walkable to Ben Thanh (0.4 km), closest of all","Cheaper than HCMC3 (S$32 vs S$40)","6 bedrooms have their own bathroom","Big ground-floor living room with AC","Rooftop + reading room","Washer + dryer"],
-   ["Shopping street: 3.2 km, Grab or long walk","All 9 reviews are from Dec 2019 to Mar 2020, none since","Same house listed again by another host with 0 reviews","Photos show only 5 of 7 bedrooms","Neighbours close, some noise (Mar 2020)","7 queen beds, so 2 pairs share","Free cancel ends soon (5 Dec)"]),
+   ["Shopping street: 3.2 km, Grab or long walk","All 9 reviews are from Dec 2019 to Mar 2020, none since","Same house listed again by another host with 0 reviews","Photos show only 5 of 7 bedrooms","Neighbours close, some noise (Mar 2020)","Free cancel ends soon (5 Dec)"]),
  ]),
  ("danang", "Da Nang", "Da Nang", "7–11 Jan 2027", 4, "2027-01-07", "2027-01-11", "#6fd6d1",
   "Ranked best first. Private pool + central costs about S$26–31 per person per night.", [
@@ -47,13 +53,13 @@ CITIES = [
  ]),
 ]
 
-CANC = {'1672471341262461731': 'Free cancel until 30 Dec', '1587035319818469396': 'Free cancel until 3 Jan', '1575977622753200671': 'No free cancellation', '1483784188953758037': 'Free cancel until 30 Dec', '27914684': 'No free cancellation', '1697772649812663470': 'Free cancel until 3 Jan', '1311605703773163437': 'Free cancel until 3 Jan', '27990178': 'Free cancel until 30 Dec', '39342498': 'No free cancellation', '965804095820583217': 'Free cancel until 30 Dec', '1731138706065239581': 'Free cancel until 30 Dec', '1500369668192839406': 'Free cancel until 8 Dec', '1499048958220731670': 'Free cancel until 8 Dec', '1119292625144112269': 'Free cancel until 8 Dec', '1598281711142232998': 'Free cancel until 24 Dec', '1173705612210421870': 'Free cancel until 2 Jan', '1386982353850299078': 'Free cancel until 30 Dec', '39879364': 'Free cancel until 5 Dec', '1733492588128339446': 'Free cancel until 3 Jan'}
+CANC = {'1672471341262461731': 'Free cancel until 30 Dec', '1587035319818469396': 'Free cancel until 3 Jan', '1575977622753200671': 'No free cancellation', '1483784188953758037': 'Free cancel until 30 Dec', '27914684': 'No free cancellation', '1697772649812663470': 'Free cancel until 3 Jan', '1311605703773163437': 'Free cancel until 3 Jan', '27990178': 'Free cancel until 30 Dec', '39342498': 'No free cancellation', '965804095820583217': 'Free cancel until 30 Dec', '1731138706065239581': 'Free cancel until 30 Dec', '1500369668192839406': 'Free cancel until 8 Dec', '1499048958220731670': 'Free cancel until 8 Dec', '1119292625144112269': 'Free cancel until 8 Dec', '1598281711142232998': 'Free cancel until 24 Dec', '1173705612210421870': 'Free cancel until 2 Jan', '1386982353850299078': 'Free cancel until 30 Dec', '39879364': 'Free cancel until 5 Dec', '19831286': 'Free cancel until 5 Dec', '1510607297508263594': 'Free cancel until 5 Dec', '1733492588128339446': 'Free cancel until 3 Jan'}
 WISH = set()
 WISH_OUT = {"hcmc": [
 ]}
 CHECKED_OUT = {"hcmc": [
  ("Cherry Blossom Bui Vien 6BR","from S$1,170","1468701455317785569","1.1 km. Oct 2026 2★: rooms differ from photos, broken tap, cloudy water. Hostel-style key cards, Bui Vien noise. Listed 3 times."),
- ("Central 7BR House","S$920","40789691","Same text as HCMC9 under another host, 0 reviews."),
+ ("Central 7BR House","S$920","40789691","Same text as HCMC8 under another host, 0 reviews."),
  ("Japanese Home 5BR","S$1,086","1735427000719449892","1.0 km. No reviews, almost no description."),
  ("Luxury Villa 5BR","S$1,242","1697600535579250591","1.0 km. Host is Vihomes (rejected before). Description warns photos may not match. 1 hidden review."),
  ("District 3 Alley House 5BR","S$728","1459896296341870618","1.0 km, cheap, living room has AC. No reviews, 3 full baths, 5 beds for 9."),
@@ -62,7 +68,7 @@ CHECKED_OUT = {"hcmc": [
  ("Haina's 6BR, Nguyen Cu Trinh","S$1,120","1469368568115213026","1.5 km. 4.83★ (63), S$41. Nov 2026: \"living room is small\", steep stairs. Only 2 bedrooms have their own bathroom. Weak water pressure. Cars can't reach the door."),
  ("Other 5BR houses (2 listings)","S$681–914","1334823230471706143","1.4–1.5 km, no reviews."),
  ("Bui Vien homestays (2 listings)","S$368–375","1043434707923558492","3 bedrooms, rated 3.9–4.0."),
- ("About 85 apartments","","","Cut for the apartment legal risk that lost HCMC1."),
+ ("About 25 other apartments","","","Most were 2 flats joined, blocks of separate studios, or had no reviews."),
 ]}
 
 def esc(s): return html.escape(s, quote=True)
