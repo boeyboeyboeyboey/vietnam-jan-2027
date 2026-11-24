@@ -134,7 +134,7 @@ HEAD = '''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name=
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=swap">
 <style>{css}</style></head>'''
 
-TOPTAG = ' <span class="wish pick">Top pick</span>'
+TOPTAG = ' <span class="wish pick">Booked</span>'
 WISHTAG = ' <span class="wish">On your wishlist</span>'
 VOTED = {"1483784188953758037"}
 VOTEDTAG = ' <span class="wish">Voted from previous wishlist</span>'
